@@ -10,26 +10,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
-          Moita.me
-        </h1>
+      <main className="container p-2 flex flex-row justify-center h-screen items-center">
+        <div className="items-center">
+        Olá, eu sou o <b>Moita</b>!<hr className="border-2 border-solid m-1 w-3/6 border-moitagreen mx-4 items-center hidden sm:inline-flex" /><br />
+        sou um <b>desenvolvedor web</b> e estou aqui para <b>ajudar você</b>.
+        </div>
       </main>
 
-      <div>
+      <div className="justify-center h-screen">
         {worksData.map((item) => (
-          <div key={item.slug}>
-
-            <h1>
-            <Link href={`/works/${item.slug}`}>
-              <a>{item.title}</a>
-            </Link>
-            </h1>
-            <small>{item.date}</small>
-            <p>{item.content}</p>
-          </div>
+          <WorkListItem key={item.slug} {...item} />
         ))}
       </div>
     </div>
+  );
+}
+
+function WorkListItem({ slug, title }) {
+  return(
+      <div>
+        <Link href={`/works/${slug}`}>
+          <a className="text-9xl text-left">{title}</a>
+        </Link>
+      </div>
   );
 }
