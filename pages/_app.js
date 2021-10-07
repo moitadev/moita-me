@@ -1,12 +1,22 @@
 import Link from 'next/Link';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
+config.autoAddCss = false;
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+
+function moitaApp({ Component, pageProps }) {
+  useEffect(() =>{
+    AOS.init();
+  }, []);
   return (
-    <div className="container m-auto pt-8 p-4 max-w-9xl flex flex-col">
-      <header className="flex flex-row justify-between items-center bg-moitablack">
-        <div className="flex flex-row items-center">
+    <>
+      <nav className="flex items-center justify-between flex-wrap bg-moitablack p-6 fixed w-full z-50">
+        <div className="flex items-center flex-shrink-0 mr-6 w-auto">
           <Link href="/">
             <a><img src="/assets/icon.svg" width={50}/></a>
           </Link>
@@ -14,19 +24,27 @@ function MyApp({ Component, pageProps }) {
             <a><img className="p-2 hidden sm:inline-block" src="/assets/textNegative.svg" width={100} /></a>
           </Link>
         </div>
-        <nav className="flex my-4">
+        <div className="w-auto block items-center">
           <ul className="space-x-4 col-end-7 inline-flex items-center">
             <li>
               <Link href="/about">
                 <a>about</a>
               </Link>
             </li>
+            <li>
+              <Link href="/blog">
+                <a>blog</a>
+              </Link>
+            </li>
           </ul>
-        </nav>
-      </header>
-      <Component {...pageProps} />
-    </div>
+        </div>
+      </nav>
+      <div className="relative max-w-7xl mx-auto">
+        <Component {...pageProps} />
+      </div>
+      
+    </>
   )
 }
 
-export default MyApp
+export default moitaApp

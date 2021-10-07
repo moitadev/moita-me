@@ -18,14 +18,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container p-2 flex flex-col justify-center h-screen items-center">
+      <main className="p-2 flex flex-col justify-center h-screen items-center">
         <div className="flex-col items-center antialiased">
           Hey, I'm <b>Moita</b>!<hr className="border-2 border-solid m-1 w-3/6 border-moitagreen mx-4 items-center hidden sm:inline-flex" /><br />
           I'm a <b>web developer</b> and I'm here to <b>help you</b>.
         </div>
         <div className="items-center flex-col my-8">
-          <button class="bg-transparent text-white transition duration-500 ease-in-out hover:text-moitagreen py-2 px-4 border-4 border-solid border-white hover:border-moitagreen" onClick={gotoWorkSection}>
-            my work
+          <button className="bg-transparent text-white transition duration-500 ease-in-out hover:text-moitagreen py-2 px-4 border-4 border-solid border-white hover:border-moitagreen" onClick={gotoWorkSection}>
+            my projects
           </button>
         </div>
       </main>
