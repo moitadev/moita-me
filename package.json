@@ -22,6 +22,7 @@
     "react": "17.0.2",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "17.0.2",
+    "react-scrollmagic": "^2.3.0",
     "react-tooltip": "^4.2.21",
     "tailwindcss": "^2.2.11"
   },
