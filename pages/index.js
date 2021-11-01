@@ -5,9 +5,10 @@ import { worksData } from '../lib/data';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import { Controller, Scene } from 'react-scrollmagic';
 
-library.add(fab)
+library.add(fab, fas)
 
 export default function Home() {
   const workSection = useRef(null);
@@ -41,7 +42,23 @@ export default function Home() {
         <Controller>
           <Scene duration={'200%'} pin triggerHook={0}>
             <div className="workTitle">
-              <h1>Pilli</h1>
+              <div className="text-left">
+                <h1 className="text-7xl font-bold">Pilli</h1><br />
+                <p>Front-end Developer &#8211; Web App</p>
+                <p className="text-xs my-3 opacity-50">vue · bootstrap · sass · firebase</p>
+                <ul className="flex justify-center items-center mt-0">
+                  <li className="inline justify-center px-4 pb-4 pt-0">
+                    <a href="https://pillimidia-3fa4c.web.app/" target="_blank">
+                      <FontAwesomeIcon icon={["fas", "desktop"]} size="lg" className="icons" />
+                    </a>
+                  </li>
+                  <li className="inline justify-center px-4 pb-4 pt-0">
+                    <a href="https://github.com/moitadev/pillimidia" target="_blank">
+                      <FontAwesomeIcon icon={["fas", "code"]} size="lg" className="icons" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </Scene>
         </Controller>
@@ -70,7 +87,25 @@ export default function Home() {
         <Controller>
           <Scene duration={'200%'} pin triggerHook={0}>
             <div className="workTitle">
-              <h1>Node Form</h1>
+              <div className="text-left">
+                <h1 className="text-7xl font-bold">React Form</h1><br />
+                <p>Fullstack Developer &#8211; Web App</p>
+                <p className="text-xs my-3 opacity-50">react · nodemailer · API route</p>
+                <ul className="flex justify-center items-center mt-0">
+                  <li className="inline justify-center px-4 pb-4 pt-0">
+                    <Link href={'/about#contactSection'}>
+                      <a>
+                        <FontAwesomeIcon icon={["fas", "desktop"]} size="lg" className="icons" />
+                      </a>
+                    </Link>
+                  </li>
+                  <li className="inline justify-center px-4 pb-4 pt-0">
+                    <a href="https://github.com/moitadev/pillimidia" target="_blank">
+                      <FontAwesomeIcon icon={["fas", "code"]} size="lg" className="icons" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </Scene>
         </Controller>
@@ -102,17 +137,17 @@ export default function Home() {
             more projects on
           </p>
           <ul className="flex justify-center items-center mt-0">
-              <li className="inline sm:block px-2 py-4 pt-0">
-                <a href="https://github.com/moitadev" target="_blank">
-                  <FontAwesomeIcon icon={["fab", "github"]} size="xs" className="icons" />
-                </a>
-              </li>
-              <li className="inline sm:block px-2 py-4 pt-0">
-                <a href="https://dribbble.com/moita" target="_blank">
-                  <FontAwesomeIcon icon={["fab", "dribbble"]} size="xs" className="icons" />
-                </a>
-              </li>
-            </ul>
+            <li className="inline sm:block px-2 py-4 pt-0">
+              <a href="https://github.com/moitadev" target="_blank">
+                <FontAwesomeIcon icon={["fab", "github"]} size="xs" className="icons" />
+              </a>
+            </li>
+            <li className="inline sm:block px-2 py-4 pt-0">
+              <a href="https://dribbble.com/moita" target="_blank">
+                <FontAwesomeIcon icon={["fab", "dribbble"]} size="xs" className="icons" />
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
     </div>

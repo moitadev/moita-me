@@ -1,30 +1,42 @@
 import Head from 'next/head'
-import React, { useRef, useState } from "react";
+import { useForm } from 'react-hook-form';
+import React, { useRef } from "react";
+import { useRouter } from 'next/dist/client/router';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import ReactTooltip from 'react-tooltip';
+import axios from 'axios';
 
 library.add(fab, fas)
 
 export default function About() {
+  const router = useRouter();
   const contactSection = useRef(null);
+  
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-  const [fields, setFields] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  async function onSubmitForm(values){
+    let config = {
+      method: 'post',
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: values,
+    };
 
-  function handleFormSubmit(event){
-    event.preventDefault();
-    console.log(fields);
-}
-
-  function handleInputChange(event){
-      fields[event.target.name] = event.target.value;
-      setFields(fields);
+    try{
+      const response = await axios(config);
+      if(response.status == 200){
+        reset();
+        router.push('/')
+      }
+    } catch (err) {
+      console.error(err);
+    }
+    
   }
 
   const gotoContactSection = () => window.scrollTo({ 
@@ -144,22 +156,29 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section ref={contactSection} className="p-2 flex flex-col items-center h-3/4">
-        <div className="container mx-auto grid flex-col sm:grid-flow-col gap-4 items-center">
-          <div className="ml-0 sm:ml-24 items-center">
-          <p className="text-left">
+      <section id="contactSection" ref={contactSection} className="p-2 flex flex-col items-center h-3/4">
+        <p className="text-left">
             <b>Let’s grab a coffee and have a talk!</b> <FontAwesomeIcon icon={["fas", "coffee"]} size="xs" />
           </p>
-            <img className="p-2 mr-0" src="/assets/email.png" width={500} />
-          </div>
-          <div className="ml-0 pb-2 w-100">
+        <div className="container mx-auto grid flex-col sm:grid-flow-col gap-4 items-center">
+          <div className="ml-0 sm:ml-24 pb-2 w-100">
             <div className="grid-flow-col">
-              <form className="my-6" onSubmit={handleFormSubmit}>
-                <input type="text" id="name" name="name" placeholder="name" onChange={handleInputChange} />
-                <input type="text" id="email" name="email" placeholder="email" onChange={handleInputChange} />
-                
-                <textarea id="message" name="message" placeholder="message" onChange={handleInputChange} className="textArea h-32"></textarea>
-        
+              <form className="my-6" onSubmit={handleSubmit(onSubmitForm)}>
+                <span className="text-xs text-red-600 py-0">
+                  {errors.name && "should I call you John or Jane Doe?"}
+                </span>
+                <input className="text-sm" type="text" name="name" {...register('name', { required: true},)} id="name" placeholder="name" />
+
+                <span className="text-xs text-red-600 py-0">
+                  {errors.email && "I'll need your email so I can contact you back"}
+                </span>
+                <input className="text-sm" type="text" {...register('email', { required: true })} id="email" placeholder="email"  />
+
+                <span className="text-xs text-red-600 py-0">
+                  {errors.message && "did you just forgot to type your message?"}
+                </span>
+                <textarea id="message" {...register('message', { required: true })} placeholder="message" className="text-sm textArea h-32"></textarea>
+
                 <input type="submit" value="send" />
               </form>
             </div>
