@@ -26,7 +26,7 @@ export default function Home() {
       </Head>
 
       <main className="p-2 flex flex-col justify-center h-screen items-center">
-        <div className="flex-col items-center antialiased"data-aos="fade-down" data-aos-duration="250">
+        <div className="flex-col items-center antialiased" data-aos="fade-down" data-aos-duration="250">
           Hey, I'm <b>Moita</b>!<hr className="border-2 border-solid m-1 w-3/6 border-moitagreen mx-4 items-center hidden sm:inline-flex" /><br />
           I'm a <b>web developer</b> and I'm here to <b>help you</b>.
         </div>
@@ -43,10 +43,10 @@ export default function Home() {
           <Scene duration={'200%'} pin triggerHook={0}>
             <div className="workTitle">
               <div className="text-left">
-                <h1 className="text-7xl font-bold">Pilli</h1><br />
-                <p>Front-end Developer &#8211; Web App</p>
-                <p className="text-xs my-3 opacity-50">vue · bootstrap · sass · firebase</p>
-                <ul className="flex justify-center items-center mt-0">
+                <h1 className="text-7xl font-bold" data-aos="fade-right" data-aos-duration="3500">Pilli</h1><br />
+                <p data-aos="fade-right" data-aos-duration="3500">Front-end Developer &#8211; Web App</p>
+                <div data-aos="fade-right" data-aos-duration="4500"><p className="text-xs my-3 opacity-50">vue · bootstrap · sass · firebase</p></div>
+                <ul className="flex justify-center items-center mt-0" data-aos="fade-right" data-aos-duration="3500">
                   <li className="inline justify-center px-4 pb-4 pt-0">
                     <a href="https://pillimidia-3fa4c.web.app/" target="_blank">
                       <FontAwesomeIcon icon={["fas", "desktop"]} size="lg" className="icons" />
@@ -64,22 +64,19 @@ export default function Home() {
         </Controller>
           <div className="workImages">
             <div>
-              <h3>Lorem Ipsum</h3>
-              <p>
-                How's this? Would it helped if I got out and pushed? It might. Captain Solo, Captain Solo...sir, might I suggest that you... It can wait. he bucket of bolts is never going to get us past that blockade. This baby's got a few surprises left in her, sweetheart. Come on! Come on! Switch over. Let's hope we don't have a burnout. See? Someday you're going to be wrong, and I hope I'm there to see it. Punch it!
-              </p>
+              <div className="ml-0 items-center">
+                <img className="p-2 " src="/assets/pillidesk1.png" width={600} />
+              </div>
             </div>
             <div>
-              <h3>Lorem Ipsum</h3>
-              <p>
-                How's this? Would it helped if I got out and pushed? It might. Captain Solo, Captain Solo...sir, might I suggest that you... It can wait. he bucket of bolts is never going to get us past that blockade. This baby's got a few surprises left in her, sweetheart. Come on! Come on! Switch over. Let's hope we don't have a burnout. See? Someday you're going to be wrong, and I hope I'm there to see it. Punch it!
-              </p>
+              <div className="ml-0 items-center">
+                <img className="p-2 rounded" src="/assets/pillimobi1.png" width={600} />
+              </div>
             </div>
             <div>
-              <h3>Lorem Ipsum</h3>
-              <p>
-                How's this? Would it helped if I got out and pushed? It might. Captain Solo, Captain Solo...sir, might I suggest that you... It can wait. he bucket of bolts is never going to get us past that blockade. This baby's got a few surprises left in her, sweetheart. Come on! Come on! Switch over. Let's hope we don't have a burnout. See? Someday you're going to be wrong, and I hope I'm there to see it. Punch it!
-              </p>
+              <div className="ml-0 items-center">
+                <img className="p-2 rounded-full" src="/assets/pilli1.png" width={600} />
+              </div>
             </div>
           </div>
         </section>
@@ -88,10 +85,10 @@ export default function Home() {
           <Scene duration={'200%'} pin triggerHook={0}>
             <div className="workTitle">
               <div className="text-left">
-                <h1 className="text-7xl font-bold">React Form</h1><br />
-                <p>Fullstack Developer &#8211; Web App</p>
-                <p className="text-xs my-3 opacity-50">react · nodemailer · API route</p>
-                <ul className="flex justify-center items-center mt-0">
+                <h1 className="text-7xl font-bold" data-aos="fade-right" data-aos-duration="3500">React Form</h1><br />
+                <p data-aos="fade-right" data-aos-duration="4000">Fullstack Developer &#8211; Web App</p>
+                <div data-aos="fade-right" data-aos-duration="4500"><p className="text-xs my-3 opacity-50">react · nodemailer · NodeJS</p></div>
+                <ul className="flex justify-center items-center mt-0" data-aos="fade-right" data-aos-duration="5500">
                   <li className="inline justify-center px-4 pb-4 pt-0">
                     <Link href={'/about#contactSection'}>
                       <a>
@@ -100,7 +97,7 @@ export default function Home() {
                     </Link>
                   </li>
                   <li className="inline justify-center px-4 pb-4 pt-0">
-                    <a href="https://github.com/moitadev/pillimidia" target="_blank">
+                    <a href="https://github.com/moitadev/moita-me/blob/main/pages/api/contact.js" target="_blank">
                       <FontAwesomeIcon icon={["fas", "code"]} size="lg" className="icons" />
                     </a>
                   </li>
@@ -111,22 +108,19 @@ export default function Home() {
         </Controller>
           <div className="workImages">
             <div>
-              <h3>Lorem Ipsum</h3>
-              <p>
-                How's this? Would it helped if I got out and pushed? It might. Captain Solo, Captain Solo...sir, might I suggest that you... It can wait. he bucket of bolts is never going to get us past that blockade. This baby's got a few surprises left in her, sweetheart. Come on! Come on! Switch over. Let's hope we don't have a burnout. See? Someday you're going to be wrong, and I hope I'm there to see it. Punch it!
-              </p>
+              <div className="ml-0items-center">
+              <img className="p-2 " src="/assets/formdesk1.png" width={600} />
+              </div>
             </div>
             <div>
-              <h3>Lorem Ipsum</h3>
-              <p>
-                How's this? Would it helped if I got out and pushed? It might. Captain Solo, Captain Solo...sir, might I suggest that you... It can wait. he bucket of bolts is never going to get us past that blockade. This baby's got a few surprises left in her, sweetheart. Come on! Come on! Switch over. Let's hope we don't have a burnout. See? Someday you're going to be wrong, and I hope I'm there to see it. Punch it!
-              </p>
+              <div className="ml-0 items-center">
+              <img className="p-2" src="/assets/formmobi1.png" width={600} />
+              </div>
             </div>
             <div>
-              <h3>Lorem Ipsum</h3>
-              <p>
-                How's this? Would it helped if I got out and pushed? It might. Captain Solo, Captain Solo...sir, might I suggest that you... It can wait. he bucket of bolts is never going to get us past that blockade. This baby's got a few surprises left in her, sweetheart. Come on! Come on! Switch over. Let's hope we don't have a burnout. See? Someday you're going to be wrong, and I hope I'm there to see it. Punch it!
-              </p>
+              <div className="ml-0 items-center">
+              <img className="p-2 rounded-full" src="/assets/formdesk2.png" width={600} />
+              </div>
             </div>
           </div>
         </section>

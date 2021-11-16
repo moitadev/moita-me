@@ -31,11 +31,11 @@ function moitaApp({ Component, pageProps }) {
                 <a>about</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/blog">
                 <a>blog</a>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

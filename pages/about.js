@@ -8,12 +8,16 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import ReactTooltip from 'react-tooltip';
 import axios from 'axios';
+import ReCAPTCHA from "react-google-recaptcha";
 
 library.add(fab, fas)
+
+
 
 export default function About() {
   const router = useRouter();
   const contactSection = useRef(null);
+  const recaptchaRef = React.useRef();
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -31,13 +35,15 @@ export default function About() {
       const response = await axios(config);
       if(response.status == 200){
         reset();
-        router.push('/')
+        router.push('/success')
       }
     } catch (err) {
       console.error(err);
     }
     
   }
+
+  const reCaptchaSiteKey = process.env.NEXT_PUBLIC_WEBSITEKEY;
 
   const gotoContactSection = () => window.scrollTo({ 
     top: contactSection.current.offsetTop, 
@@ -163,7 +169,7 @@ export default function About() {
         <div className="container mx-auto grid flex-col sm:grid-flow-col gap-4 items-center">
           <div className="ml-0 sm:ml-24 pb-2 w-100">
             <div className="grid-flow-col">
-              <form className="my-6" onSubmit={handleSubmit(onSubmitForm)}>
+              <form className="my-6" onSubmit={handleSubmit(onSubmitForm)} >
                 <span className="text-xs text-red-600 py-0">
                   {errors.name && "should I call you John or Jane Doe?"}
                 </span>
@@ -178,7 +184,11 @@ export default function About() {
                   {errors.message && "did you just forgot to type your message?"}
                 </span>
                 <textarea id="message" {...register('message', { required: true })} placeholder="message" className="text-sm textArea h-32"></textarea>
-
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  size="invisible"
+                  sitekey={reCaptchaSiteKey}
+                />
                 <input type="submit" value="send" />
               </form>
             </div>

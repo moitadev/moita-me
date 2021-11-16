@@ -70,6 +70,7 @@ input[type=text], select, textarea{
     resize: vertical;
     display: block;
     color: #171819;
+    background-color: rgba(255,255,255,0.1);
 }
 
 input[type=submit] {
