@@ -9,7 +9,7 @@ config.autoAddCss = false;
 import '../styles/globals.css';
 
 
-function moitaApp({ Component, pageProps }) {
+function MoitaApp({ Component, pageProps }) {
   useEffect(() =>{
     AOS.init();
   }, []);
@@ -18,10 +18,10 @@ function moitaApp({ Component, pageProps }) {
       <nav className="flex items-center justify-between flex-wrap bg-moitablack p-6 fixed w-full z-50">
         <div className="flex items-center flex-shrink-0 mr-6 w-auto">
           <Link href="/">
-            <a><img src="/assets/icon.svg" width={50}/></a>
+            <a><img src="/assets/icon.svg" alt="" width={50} height={50}/></a>
           </Link>
           <Link href="/">
-            <a><img className="p-2 hidden sm:inline-block" src="/assets/textNegative.svg" width={100} /></a>
+            <a><img className="p-2 hidden sm:inline-block" src="/assets/textNegative.svg" alt="" height={50} width={100} /></a>
           </Link>
         </div>
         <div className="w-auto block items-center">
@@ -47,4 +47,4 @@ function moitaApp({ Component, pageProps }) {
   )
 }
 
-export default moitaApp
+export default MoitaApp
